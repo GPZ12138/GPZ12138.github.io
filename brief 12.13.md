@@ -1,0 +1,8 @@
+- A complexity perspective on the geographical locationof companies: How distance reduce trade between firms：将网络科学的方法（评估代理人的新兴特性）与信息理论的方法（捕捉这些代理人之间的互动强度）相结合，我们可以系统地分析日本企业间商业交易网络的综合数据集，并评估空间特征对经济结构模式的影响
+- AI Agent as Urban Planner: Steering Stakeholder Dynamics inUrban Planning via Consensus-based Multi-Agent ReinforcementLearning：（呃呃这个好几个作者是同济的）一个基于共识的多智能体强化学习框架，用于现实世界的土地利用调整。该框架服务于参与式城市规划，允许不同的智能代理人作为利益相关者代表投票选择首选的土地使用类型。在这个框架内提出了一种新的共识机制——通过集体决策优化土地利用的奖励设计。![截屏2023-12-13 22.25.42](/Users/emmmmmmmm/Library/Application Support/typora-user-images/截屏2023-12-13 22.25.42.png)
+-  CACTI: A Framework for Scalable Multi-Task Multi-SceneVisual Imitation Learning：两种类型的增广，即视觉增广和**语义增广**。视觉调整涉及更改场景的视觉属性，例如对象纹理照明条件。语义推理包括改变场景中对象的**布局**，即它们的位置和方向，甚至添加新的人造对象
+- 数据增强：paraphrasing：
+  - 相近语义替换（词典、知识图谱等）/mask再生成/利用规则改写
+- LANGUAGE MODELS REPRESENT SPACE AND TIME：LLM对于时间和空间维度建立了结构化知识，prompt
+- Sensecape: Enabling Multilevel Exploration and Sensemakingwith Large Language Models：非线性的，分层构建知识
+- Making Large Language Models Better Knowledge Miners forOnline Marketing with Progressive Prompting Augmentation：**渐进提示增强**获取知识图谱：利用LLM做数据增强
