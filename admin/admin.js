@@ -44,16 +44,37 @@
     wireActions();
   };
 
+  // Show/hide password toggle
+  const showBtn = document.getElementById("pwShow");
+  if (showBtn) {
+    showBtn.addEventListener("click", () => {
+      const isPw = pwInput.type === "password";
+      pwInput.type = isPw ? "text" : "password";
+      showBtn.textContent = isPw ? "hide" : "show";
+      pwInput.focus();
+    });
+  }
+
   // Auto-restore session
   (async () => {
     const saved = sessionStorage.getItem(SESSION_KEY);
     if (saved && saved === ADMIN_PW_HASH) showDash();
   })();
 
+  // Normalize input: strip leading/trailing whitespace + Unicode NFC so that
+  // stray copy-paste spaces or IME-inserted full-width chars don't silently
+  // fail. We do NOT modify the password itself — the hash is still the hash
+  // of the original password string.
+  const normalize = (s) => {
+    try { return String(s).normalize("NFC").trim(); }
+    catch { return String(s).trim(); }
+  };
+
   loginForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     pwError.hidden = true;
-    const pw = pwInput.value;
+    const pw = normalize(pwInput.value);
+    if (!pw) { pwError.hidden = false; pwInput.focus(); return; }
     const hash = await sha256(pw);
     if (hash === ADMIN_PW_HASH) {
       sessionStorage.setItem(SESSION_KEY, hash);

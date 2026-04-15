@@ -2,6 +2,11 @@
 
 .admin-body { background: var(--bg-soft); }
 
+/* UA [hidden] default gets overridden by our own `display:` rules on .admin-gate
+ * and .admin-dash, so restate it with higher specificity. */
+.admin-gate[hidden],
+.admin-dash[hidden] { display: none !important; }
+
 /* ---------- Login gate ---------- */
 .admin-gate {
   min-height: 100vh;
@@ -38,6 +43,7 @@
   text-transform: uppercase;
   letter-spacing: 0.12em;
 }
+.admin-pw-row { position: relative; display: flex; align-items: stretch; }
 .admin-field input {
   font: inherit;
   font-size: 0.95rem;
@@ -46,7 +52,26 @@
   border-radius: 4px;
   background: var(--bg);
   color: var(--text);
+  width: 100%;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
 }
+.admin-pw-toggle {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  padding: 4px 8px;
+  border-radius: 3px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: transparent;
+  border: none;
+}
+.admin-pw-toggle:hover { color: var(--text); background: var(--bg-mute); }
 .admin-field input:focus {
   outline: 2px solid var(--text);
   outline-offset: -1px;
