@@ -5,14 +5,14 @@
   "total_citations": 777,
   "h_index": 7,
   "i10_index": 5,
-  "publications_count": 9,
+  "publications_count": 10,
   "per_year": {
     "2023": 7,
     "2024": 56,
     "2025": 439,
     "2026": 274
   },
-  "last_updated": "2026-04-15T11:15:00Z",
+  "last_updated": "2026-04-15T12:57:10Z",
   "source": "https://scholar.google.com/citations?user=Jwg8XugAAAAJ",
   "note": "Auto-refreshed by .github/workflows/update-scholar.yml every 6 hours."
 }
