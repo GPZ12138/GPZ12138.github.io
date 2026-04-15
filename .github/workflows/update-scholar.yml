@@ -1,0 +1,57 @@
+name: Update Scholar Data
+
+# Periodic background refresh of Google Scholar stats.
+# Runs every 6 hours + on manual dispatch + on pushes to scripts/.
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+  push:
+    paths:
+      - "scripts/fetch_scholar.py"
+      - "scripts/requirements.txt"
+      - ".github/workflows/update-scholar.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-scholar
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: scripts/requirements.txt
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r scripts/requirements.txt
+
+      - name: Fetch Google Scholar stats
+        env:
+          SCHOLAR_ID: Jwg8XugAAAAJ
+        run: python scripts/fetch_scholar.py
+
+      - name: Commit if data changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/scholar.json
+          if git diff --cached --quiet; then
+            echo "No changes in scholar data."
+          else
+            git commit -m "chore(data): refresh Google Scholar snapshot"
+            git push
+          fi
