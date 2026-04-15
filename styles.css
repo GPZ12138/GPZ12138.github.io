@@ -8,7 +8,6 @@
   --bg-soft:       #fafafa;
   --bg-mute:       #f1f1ee;
   --bg-deep:       #e7e6e0;
-  --bg-chip:       #ececE6;
   --text:          #161616;
   --text-body:     #232323;
   --text-dim:      #555555;
@@ -31,7 +30,6 @@ html[data-theme="dark"] {
   --bg-soft:       #151516;
   --bg-mute:       #1c1c1d;
   --bg-deep:       #222224;
-  --bg-chip:       #222224;
   --text:          #ededec;
   --text-body:     #d6d6d4;
   --text-dim:      #a1a19d;
