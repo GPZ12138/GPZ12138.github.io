@@ -1,0 +1,24 @@
+# ============================================================
+# Secrets — never commit
+# ============================================================
+secrets/
+*.env
+*.env.*
+!.env.example
+*.key
+*.pem
+.DS_Store
+
+# Worker local dev
+worker/.wrangler/
+worker/node_modules/
+worker/.dev.vars
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Temp
+/tmp/
+*.log

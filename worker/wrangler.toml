@@ -1,0 +1,13 @@
+name = "pg-analytics"
+main = "analytics-worker.js"
+compatibility_date = "2026-04-01"
+
+# KV namespace for visit storage.
+# After creating it with `wrangler kv:namespace create VISITS_KV`,
+# paste the returned `id` here.
+kv_namespaces = [
+  { binding = "VISITS_KV", id = "REPLACE_WITH_KV_NAMESPACE_ID" }
+]
+
+# Secrets to set with `wrangler secret put`:
+#   ADMIN_TOKEN    random string used to auth GET /visits and GET /stats

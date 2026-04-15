@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin · Analytics — Peizhong Gao</title>
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <meta http-equiv="x-robots-tag" content="noindex, nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css?v=15" />
+  <link rel="stylesheet" href="admin.css?v=2" />
+</head>
+<body class="admin-body">
+
+  <!-- Password gate -->
+  <section id="gate" class="admin-gate" aria-label="Admin login">
+    <form id="loginForm" class="admin-login" autocomplete="off">
+      <h1>Admin</h1>
+      <p class="admin-lede">Enter the admin password to view visit analytics.</p>
+      <label class="admin-field">
+        <span>Password</span>
+        <input type="password" id="pw" autocomplete="current-password" required autofocus />
+      </label>
+      <button type="submit">Enter</button>
+      <p class="admin-error" id="pwError" hidden>Wrong password.</p>
+      <p class="admin-hint">
+        This page is not linked from the main site. The password lives in
+        <code>secrets/ADMIN_CREDENTIALS.md</code> (gitignored).
+      </p>
+    </form>
+  </section>
+
+  <!-- Dashboard -->
+  <main id="dash" class="admin-dash" hidden>
+    <header class="admin-top">
+      <div class="admin-top-left">
+        <h1>Analytics</h1>
+        <p class="admin-sub">
+          <a href="../" rel="noopener">← back to site</a>
+          <span class="sep">·</span>
+          <span id="dataSource">localStorage</span>
+          <span class="sep">·</span>
+          <span id="lastSync">—</span>
+        </p>
+      </div>
+      <div class="admin-top-right">
+        <button id="refreshBtn" class="btn-ghost" type="button">Refresh</button>
+        <button id="exportBtn"  class="btn-ghost" type="button">Export JSON</button>
+        <button id="clearBtn"   class="btn-ghost danger" type="button">Clear local</button>
+        <button id="logoutBtn"  class="btn-ghost" type="button">Log out</button>
+      </div>
+    </header>
+
+    <!-- KPIs -->
+    <section class="kpi-grid" aria-label="Top metrics">
+      <div class="kpi">
+        <div class="kpi-num" id="kpiTotal">0</div>
+        <div class="kpi-cap">Total visits</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-num" id="kpiVisitors">0</div>
+        <div class="kpi-cap">Unique visitors</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-num" id="kpiSessions">0</div>
+        <div class="kpi-cap">Sessions</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-num" id="kpiRepeat">0</div>
+        <div class="kpi-cap">Repeat visitors</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-num" id="kpiToday">0</div>
+        <div class="kpi-cap">Today</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-num" id="kpi7d">0</div>
+        <div class="kpi-cap">Last 7 days</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-num" id="kpiCountries">0</div>
+        <div class="kpi-cap">Countries</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-num" id="kpi30d">0</div>
+        <div class="kpi-cap">Last 30 days</div>
+      </div>
+    </section>
+
+    <!-- Charts row -->
+    <section class="chart-grid">
+      <article class="panel">
+        <h2>Visits per day (last 30 days)</h2>
+        <div class="bar-chart" id="dailyChart" aria-label="Daily visits"></div>
+      </article>
+      <article class="panel">
+        <h2>Top countries</h2>
+        <div class="ranked" id="countriesList"></div>
+      </article>
+    </section>
+
+    <section class="chart-grid">
+      <article class="panel">
+        <h2>Top referrers</h2>
+        <div class="ranked" id="referrersList"></div>
+      </article>
+      <article class="panel">
+        <h2>Devices / browsers</h2>
+        <div class="ranked" id="devicesList"></div>
+      </article>
+    </section>
+
+    <!-- Recent visits table -->
+    <section class="panel">
+      <h2>
+        Recent visits
+        <span class="panel-sub" id="recentSub">—</span>
+      </h2>
+      <div class="table-wrap">
+        <table class="visits-table" id="visitsTable">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>IP</th>
+              <th>Country</th>
+              <th>City</th>
+              <th>ISP / ASN</th>
+              <th>Path</th>
+              <th>Referrer</th>
+              <th>Session</th>
+              <th>Visitor</th>
+            </tr>
+          </thead>
+          <tbody id="visitsBody"><tr><td colspan="9" class="empty">No visits recorded on this browser yet. Open the site in a new tab to generate one.</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="admin-footer">
+      <p>© Peizhong Gao · private admin. Source: <code id="srcTxt">localStorage</code>.</p>
+    </footer>
+  </main>
+
+  <script src="admin.js?v=2" defer></script>
+</body>
+</html>
