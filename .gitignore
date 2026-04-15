@@ -9,6 +9,13 @@ secrets/
 *.pem
 .DS_Store
 
+# ============================================================
+# Private assets — kept locally, never pushed
+# ============================================================
+Peizhong_Gao_Resume_*.pdf
+*_Resume_*.pdf
+my_info_web.com
+
 # Worker local dev
 worker/.wrangler/
 worker/node_modules/

@@ -41,7 +41,6 @@ Intern at **[REDACTED]** ([REDACTED] / [REDACTED], Summer 2026).
 │   ├── ENGINEERING_SPEC.md  engineering spec (architecture, contracts)
 │   ├── WORK_SUMMARY_EN.md   build log — English
 │   └── WORK_SUMMARY_ZH.md   build log — 中文
-├── Peizhong_Gao_Resume_20260223.pdf
 └── README.md
 ```
 
