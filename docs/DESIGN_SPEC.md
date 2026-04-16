@@ -2,7 +2,7 @@
 
 > The site exists to communicate two things in under five seconds:
 > **who Peizhong is** (name, photo, affiliation) and **why that matters**
-> (incoming [REDACTED] role, live citation impact, selected research).
+> (live citation impact, selected research).
 > Everything else is subordinate to that goal.
 
 ## 1. Design principles
@@ -19,7 +19,7 @@
    (they are hard to read at small sizes); emphasis is via weight.
 5. **Bilingual parity.** English is canonical. Chinese version exists for
    readers who prefer it, but English is never contaminated with Chinese.
-   (Chinese page may contain English proper nouns — LLM, Kimi, [REDACTED] — that
+   (Chinese page may contain English proper nouns — LLM, Kimi, etc. — that
    have no better translation.)
 
 ## 2. Color palette
@@ -70,7 +70,7 @@ Grays only — no hue (except via real photographic content).
 2. Name (+ Chinese under name when language = 中文)
 3. Affiliation (2 short lines)
 4. **Stats box**: 777 · 7 · 9 + "live · Google Scholar"
-5. **Incoming box** (same style as stats): 2 lines, [REDACTED] / [REDACTED]
+5. **Incoming box** (optional, when applicable): same visual style as stats box
 6. Contact grid: 3 columns × 2 rows — Email, Scholar, LinkedIn · GitHub, CV,
    and a full-width "📍 Seattle · Beijing" footer
 7. Research-interest chip line
@@ -112,7 +112,7 @@ What gets bold:
 
 - **Institutions I want readers to register**: Tsinghua, Moonshot AI,
   Microsoft Research Asia (the group name — "Natural Language Computing Group"
-  — is bold; "MSRA" itself is not), [REDACTED], Tongji, GIX Institute,
+  — is bold; "MSRA" itself is not), Tongji, GIX Institute,
   University of Washington.
 - **Project names**: Kimi-Researcher, Kimi K2, Kimi K2 Thinking, Meta
   Reasoning for LLMs, MRP, Mul-O, SurrealDriver, OdorAgent, Atmospheror,
@@ -123,7 +123,8 @@ What gets bold:
 
 What is *not* bold:
 
-- "[REDACTED]", "[REDACTED]", generic job-title words.
+- Specific product / codename words that don't travel outside the
+  original lab context; generic job-title words.
 - Other individuals' names (never single out collaborators when no other
   name appears on the page).
 

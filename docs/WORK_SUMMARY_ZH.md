@@ -9,8 +9,7 @@
 一个纯静态、单页的学术个人主页，围绕三件事清晰传达：
 
 1. **身份。** 姓名、照片、机构（GIX · 清华 × University of Washington）。
-2. **轨迹。** 即将加入 **[REDACTED]** [REDACTED]任 AI Research Scientist 实习生，
-   通过 **[REDACTED] ([REDACTED])** 人才项目，2026 年夏；此前在 Moonshot AI
+2. **轨迹。** 此前在 Moonshot AI
    (Kimi-Researcher + Kimi K2 Data Science 能力负责人)、微软亚洲研究院
    (Natural Language Computing Group)、清华未来实验室 / AIR 工作。
 3. **影响力。** 总被引 **777**，h-index **7**，论文 **9** 篇；逐年引用柱状图

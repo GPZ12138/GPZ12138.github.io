@@ -10,8 +10,7 @@ A static single-page personal homepage for Peizhong, tuned to communicate
 three things above everything else:
 
 1. **Identity.** Name, photo, affiliation (GIX / Tsinghua × UW).
-2. **Trajectory.** Incoming AI Research Scientist Intern at **[REDACTED]** via
-   the **[REDACTED] ([REDACTED])**, Summer 2026; prior work at
+2. **Trajectory.** Prior work at
    Moonshot AI (Kimi-Researcher + Kimi K2 Data Science capability),
    Microsoft Research Asia (Natural Language Computing Group), and
    Tsinghua Future Lab / AIR.

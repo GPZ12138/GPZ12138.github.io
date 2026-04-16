@@ -8,9 +8,8 @@
 
 A static, single-page academic homepage for **Peizhong (Chill) Gao** — LLM
 post-training and agent researcher at **GIX Institute** (Tsinghua × UW), core
-contributor to **Kimi-Researcher** and owner of the **Data Science capability** of
-**Kimi K2 / K2 Thinking** at **Moonshot AI**, and incoming AI Research Scientist
-Intern at **[REDACTED]** ([REDACTED] / [REDACTED], Summer 2026).
+contributor to **Kimi-Researcher** and owner of the **Data Science capability**
+of **Kimi K2 / K2 Thinking** at **Moonshot AI**.
 
 ## Highlights
 

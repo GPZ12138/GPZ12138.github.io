@@ -36,3 +36,4 @@ worker/.dev.vars
 # Temp
 /tmp/
 *.log
+task.md
