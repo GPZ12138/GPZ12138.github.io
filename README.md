@@ -1,5 +1,8 @@
 # Peizhong (Chill) Gao — Personal Homepage
 
+**🌐 Live site:** https://gpz12138.github.io/
+**🔐 Admin dashboard:** https://gpz12138.github.io/admin/ (password in `secrets/ADMIN_CREDENTIALS.md`)
+
 [![Live site](https://img.shields.io/badge/live-gpz12138.github.io-222222?style=flat-square)](https://gpz12138.github.io/)
 [![Scholar sync](https://img.shields.io/badge/scholar%20sync-every%206h-222222?style=flat-square)](./.github/workflows/update-scholar.yml)
 
