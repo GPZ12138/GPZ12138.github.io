@@ -14,5 +14,7 @@
   },
   "last_updated": "2026-04-16T01:25:10Z",
   "source": "https://scholar.google.com/citations?user=Jwg8XugAAAAJ",
-  "note": "Polled once a day via .github/workflows/update-scholar.yml; a lightweight check decides whether to run the full scrape."
+  "note": "Polled once a day via .github/workflows/update-scholar.yml; a lightweight check decides whether to run the full scrape.",
+  "last_check": "2026-04-16T07:50:31Z",
+  "last_check_method": "quick-failed-heavy-failed"
 }
