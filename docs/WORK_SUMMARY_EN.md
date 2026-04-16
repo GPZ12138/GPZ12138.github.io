@@ -26,10 +26,14 @@ column on desktop. Everything is monochrome grayscale, one typeface
 
 - **Zero build step.** Plain HTML + CSS + vanilla JS. `git push` = deploy.
 - **Live Google Scholar stats without a server.** A GitHub Actions workflow
-  runs every 6 hours, scrapes the Scholar profile via `scholarly`, writes
-  `data/scholar.json`. The client fetches that file on every page load and
-  animates the numbers. On scraping failure, the previous snapshot is
-  preserved so the public numbers never flicker to zero.
+  runs once a day with a **two-tier polite poll**: first a lightweight
+  plain-browser HTTPS GET of the public profile (one request, looks
+  like a human clicking refresh) checks whether the total citation
+  count has moved; only when it has does the workflow run the full
+  `scholarly` scrape and commit a new `data/scholar.json`. The client
+  fetches that file on every page load and animates the numbers. On
+  scraping failure, the previous snapshot is preserved so the public
+  numbers never flicker to zero.
 - **Bilingual (EN / 中) without a second route.** Every translatable node
   carries `data-en` + `data-zh` attributes; a 120-line vanilla-JS toggle
   swaps `textContent` / `innerHTML` in place and persists the choice.

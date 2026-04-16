@@ -1,11 +1,20 @@
 name: Update Scholar Data
 
-# Periodic background refresh of Google Scholar stats.
-# Runs every 6 hours + on manual dispatch + on pushes to scripts/.
+# Polite daily refresh of Google Scholar stats.
+# Tier 1 (lightweight profile-page GET) runs every day. Tier 2 (full
+# `scholarly` scrape) only runs when Tier 1 sees a change in total
+# citations, or when the workflow is manually dispatched with force=true.
 on:
   schedule:
-    - cron: "0 */6 * * *"
+    # Once a day at 03:17 UTC (off-peak; non-round minute to avoid the
+    # top-of-hour bot-traffic spike that Scholar rate-limits hardest).
+    - cron: "17 3 * * *"
   workflow_dispatch:
+    inputs:
+      force:
+        description: "Force a full (Tier 2) scrape even if the lightweight check sees no change."
+        type: boolean
+        default: false
   push:
     paths:
       - "scripts/fetch_scholar.py"
@@ -42,6 +51,7 @@ jobs:
       - name: Fetch Google Scholar stats
         env:
           SCHOLAR_ID: Jwg8XugAAAAJ
+          FORCE_REFRESH: ${{ inputs.force }}
         run: python scripts/fetch_scholar.py
 
       - name: Commit if data changed

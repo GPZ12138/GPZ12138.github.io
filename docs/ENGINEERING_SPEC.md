@@ -113,7 +113,8 @@ CI and never on the client.
 
 ### `.github/workflows/update-scholar.yml`
 
-- Triggers: cron every 6 h (`0 */6 * * *`), manual dispatch, push to any file
+- Triggers: daily cron (`17 3 * * *`, UTC), manual dispatch with optional
+  `force` input, push to any file
   in `scripts/` or this workflow.
 - Steps: checkout → setup-python 3.11 → pip install → run script →
   commit + push if JSON changed.

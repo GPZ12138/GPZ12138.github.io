@@ -18,7 +18,7 @@ Intern at **[REDACTED]** ([REDACTED] / [REDACTED], Summer 2026).
 - **Bilingual** (English / 中文) toggle in the header. English is the canonical version.
 - **Light / dark theme** toggle.
 - **Live Google Scholar stats** (citations, h-index, i10, paper count, per-year
-  chart) auto-refreshed every 6 hours by a GitHub Actions workflow that scrapes
+  chart) refreshed by a polite two-tier daily workflow that scrapes
   Scholar and commits `data/scholar.json` — the client then fetches that JSON on
   every page load, so the numbers you see are always the most recent snapshot.
 - **No build step.** Plain HTML / CSS / vanilla JS. Deploy = `git push`.
@@ -38,7 +38,7 @@ Intern at **[REDACTED]** ([REDACTED] / [REDACTED], Summer 2026).
 │   ├── fetch_scholar.py     scrapes Scholar with `scholarly`
 │   └── requirements.txt
 ├── .github/workflows/
-│   └── update-scholar.yml   cron: every 6 hours + manual dispatch
+│   └── update-scholar.yml   daily cron + manual dispatch (two-tier poll)
 ├── docs/
 │   ├── DESIGN_SPEC.md       design spec (palette, typography, layout)
 │   ├── ENGINEERING_SPEC.md  engineering spec (architecture, contracts)
@@ -57,18 +57,28 @@ python3 -m http.server 8080
 
 ## Updating the Scholar data
 
-The GitHub Actions workflow runs **every 6 hours** on `cron`, fetches the
-latest citation stats from Google Scholar, diffs against
-`data/scholar.json`, and commits + pushes on change.
+The GitHub Actions workflow runs **once a day** at 03:17 UTC and uses a
+**two-tier polite poll** to avoid hammering Google Scholar:
 
-You can also trigger it manually:
+- **Tier 1 — lightweight check.** A single plain-browser HTTPS GET of
+  the public profile page. Parse one number out of the HTML (total
+  citations). If it matches `data/scholar.json`, **stop** — just bump
+  `last_check` and exit. This is indistinguishable from a human opening
+  the page in a browser.
+- **Tier 2 — full scrape.** Only if Tier 1 sees the total has moved (or
+  you forced it via manual dispatch) do we use `scholarly` to pull the
+  full per-year breakdown, h-index, i10-index, and publications count,
+  and write the new snapshot.
 
-- GitHub UI → **Actions** → **Update Scholar Data** → **Run workflow**, or
-- `gh workflow run update-scholar.yml`
+Trigger a manual full scrape:
 
-If Scholar ever rate-limits the runner, the script preserves the last known
-values and only updates the `last_updated` timestamp — so the client never
-sees stale-looking zeros.
+- GitHub UI → **Actions** → **Update Scholar Data** → **Run workflow**,
+  tick **force = true**, or
+- `gh workflow run update-scholar.yml -f force=true`
+
+If Scholar ever rate-limits the runner, the script preserves the last
+known values and only updates `last_check` — so the client never sees
+stale-looking zeros.
 
 ## Deployment
 
