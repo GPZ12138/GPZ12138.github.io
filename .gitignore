@@ -16,6 +16,13 @@ Peizhong_Gao_Resume_*.pdf
 *_Resume_*.pdf
 my_info_web.com
 
+# ============================================================
+# Claude / AI tooling — kept local, never published
+# The .claude/ folder contains the reusable skill and any local
+# Claude Code settings. Not for the public repo.
+# ============================================================
+.claude/
+
 # Worker local dev
 worker/.wrangler/
 worker/node_modules/
