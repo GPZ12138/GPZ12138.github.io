@@ -61,7 +61,18 @@ jobs:
           git add data/scholar.json
           if git diff --cached --quiet; then
             echo "No changes in scholar data."
-          else
-            git commit -m "chore(data): refresh Google Scholar snapshot"
-            git push
+            exit 0
           fi
+          git commit -m "chore(data): refresh Google Scholar snapshot"
+
+          # The scholarly fetch can take 10+ minutes on a bad day.
+          # By the time we push, the remote may have moved on (a
+          # human pushed something, or a previous run finished).
+          # Rebase + retry handles the race silently.
+          for attempt in 1 2 3; do
+            git pull --rebase origin main && git push && exit 0
+            echo "[warn] push attempt $attempt failed; sleeping 10s and retrying."
+            sleep 10
+          done
+          echo "[error] could not push after 3 attempts."
+          exit 1
