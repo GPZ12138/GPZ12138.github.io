@@ -12,9 +12,9 @@
     "2025": 427,
     "2026": 348
   },
-  "last_updated": "2026-05-09T06:00:35Z",
+  "last_updated": "2026-05-10T06:21:31Z",
   "source": "https://scholar.google.com/citations?user=Jwg8XugAAAAJ",
   "note": "Polled once a day via .github/workflows/update-scholar.yml; a lightweight check decides whether to run the full scrape.",
-  "last_check": "2026-05-09T06:00:35Z",
+  "last_check": "2026-05-10T06:21:31Z",
   "last_check_method": "full"
 }
