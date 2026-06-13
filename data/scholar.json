@@ -2,19 +2,19 @@
   "name": "Peizhong Gao",
   "affiliation": "Tsinghua University",
   "scholar_id": "Jwg8XugAAAAJ",
-  "total_citations": 938,
+  "total_citations": 948,
   "h_index": 7,
   "i10_index": 6,
   "publications_count": 10,
   "per_year": {
     "2023": 6,
     "2024": 57,
-    "2025": 416,
-    "2026": 459
+    "2025": 415,
+    "2026": 470
   },
-  "last_updated": "2026-06-12T08:02:26Z",
+  "last_updated": "2026-06-13T07:06:34Z",
   "source": "https://scholar.google.com/citations?user=Jwg8XugAAAAJ",
   "note": "Polled once a day via .github/workflows/update-scholar.yml; a lightweight check decides whether to run the full scrape.",
-  "last_check": "2026-06-12T08:02:26Z",
+  "last_check": "2026-06-13T07:06:34Z",
   "last_check_method": "full"
 }
