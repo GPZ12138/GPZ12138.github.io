@@ -9,12 +9,12 @@
   "per_year": {
     "2023": 6,
     "2024": 58,
-    "2025": 415,
-    "2026": 495
+    "2025": 412,
+    "2026": 498
   },
-  "last_updated": "2026-06-23T07:00:35Z",
+  "last_updated": "2026-06-26T07:05:05Z",
   "source": "https://scholar.google.com/citations?user=Jwg8XugAAAAJ",
   "note": "Polled once a day via .github/workflows/update-scholar.yml; a lightweight check decides whether to run the full scrape.",
-  "last_check": "2026-06-25T06:56:13Z",
-  "last_check_method": "quick-failed-heavy-failed"
+  "last_check": "2026-06-26T07:05:05Z",
+  "last_check_method": "full"
 }
